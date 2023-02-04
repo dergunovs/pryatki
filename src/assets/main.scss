@@ -1,0 +1,62 @@
+@font-face {
+  font-family: font;
+  src: url('/fonts/700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: font;
+  src: url('/fonts/400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --color-primary: #2a3bb3;
+  --color-background: #b2f2ff;
+  --color-background-dark: #5ac9e0;
+  --color-gray: #ececec;
+  --color-gray-dark: #898989;
+  --color-gray-light: #f9f9f9;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-black-transparent: rgba(0, 0, 0, 40%);
+}
+
+* {
+  font-family: font, sans-serif;
+  font-size: 1rem;
+  font-feature-settings: 'lnum' 1;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+body {
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  margin: 12px 0;
+}
