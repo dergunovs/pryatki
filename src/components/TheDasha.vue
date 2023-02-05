@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.dasha">
-    <img src="/images/dasha/body.png" :class="$style.body" />
-    <img src="/images/dasha/axe.png" :class="$style.axe" />
+    <img src="/images/dasha/body.png" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
+    <img src="/images/dasha/axe.png" :class="$style.axe" alt="Axe" width="398" height="424" loading="lazy" />
   </div>
 </template>
 
@@ -15,7 +15,7 @@
 .body {
   max-width: 80%;
   height: auto;
-  animation: body 1s infinite;
+  animation: rotate 1s infinite;
 }
 
 .axe {
@@ -24,30 +24,16 @@
   height: auto;
   right: -24px;
   top: 26%;
-  animation: axe 1s infinite;
+  animation: rotate 1s infinite;
 }
 
-@keyframes axe {
+@keyframes rotate {
   from {
     transform: rotate(0deg);
     animation-timing-function: ease-out;
   }
   50% {
     transform: rotate(-4deg);
-    animation-timing-function: ease-out;
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes body {
-  from {
-    transform: rotate(0deg);
-    animation-timing-function: ease-out;
-  }
-  50% {
-    transform: rotate(8deg);
     animation-timing-function: ease-out;
   }
   to {
