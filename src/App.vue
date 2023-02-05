@@ -1,27 +1,42 @@
 <template>
-  <div :class="$style.main">
+  <div :class="$style.layout">
     <ExitButton />
 
-    <Suspense>
-      <router-view :class="$style.content" />
-    </Suspense>
+    <component :is="background" :class="$style.background">
+      <Suspense>
+        <router-view :class="$style.content" />
+      </Suspense>
+    </component>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
 import ExitButton from '@/components/layout/ExitButton.vue';
+import BackgroundAnimated from '@/components/layout/BackgroundAnimated.vue';
+import BackgroundBase from '@/components/layout/BackgroundBase.vue';
+
+const route = useRoute();
+
+const background = computed(() => (route.path === '/' ? BackgroundAnimated : BackgroundBase));
 </script>
 
 <style module lang="scss">
-.main {
+.layout {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   overflow: hidden;
+}
+
+.background {
+  display: flex;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 .content {
   flex: 1;
+  padding: 0 16px;
 }
 </style>

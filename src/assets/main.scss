@@ -15,13 +15,15 @@
 :root {
   --color-primary: #2a3bb3;
   --color-background: #b2f2ff;
+  --color-background-transparent: rgba(178, 242, 255, 30%);
   --color-background-dark: #5ac9e0;
+  --color-background-dark-transparent: rgba(90, 201, 224, 30%);
   --color-gray: #ececec;
   --color-gray-dark: #898989;
   --color-gray-light: #f9f9f9;
   --color-white: #fff;
   --color-black: #000;
-  --color-black-transparent: rgba(0, 0, 0, 40%);
+  --color-black-transparent: rgba(0, 0, 0, 20%);
 }
 
 * {
@@ -33,30 +35,6 @@
 }
 
 body {
-  width: calc(100% - 32px);
-  margin: 0 auto;
-  max-width: 420px;
-}
-
-h1,
-h2 {
-  text-align: center;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: 40px;
-}
-
-h2 {
-  font-size: 32px;
-}
-
-p {
   margin: 0;
-}
-
-p + p {
-  margin: 12px 0;
+  max-width: 420px;
 }

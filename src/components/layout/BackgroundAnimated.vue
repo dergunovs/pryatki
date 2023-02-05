@@ -1,7 +1,10 @@
 <template>
-  <div :class="$style.bg"></div>
-  <div :class="[$style.bg, $style.bg2]"></div>
-  <div :class="[$style.bg, $style.bg3]"></div>
+  <div>
+    <div :class="$style.bg"></div>
+    <div :class="[$style.bg, $style.bg2]"></div>
+    <div :class="[$style.bg, $style.bg3]"></div>
+    <slot></slot>
+  </div>
 </template>
 
 <style module lang="scss">

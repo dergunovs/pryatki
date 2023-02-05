@@ -25,9 +25,10 @@ function exit() {
   position: absolute;
   width: 36px;
   height: 36px;
+  padding-top: 4px;
   font-size: 2rem;
   top: 16px;
-  right: 0;
+  right: 16px;
   background: var(--color-black-transparent);
   color: var(--color-white);
   border: none;
