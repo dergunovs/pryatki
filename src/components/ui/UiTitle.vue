@@ -1,5 +1,7 @@
 <template>
-  <h1 :class="$style.title"><slot></slot></h1>
+  <h1 :class="$style.title">
+    <slot></slot>
+  </h1>
 </template>
 
 <style module>

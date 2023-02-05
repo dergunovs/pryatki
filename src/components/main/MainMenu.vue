@@ -1,16 +1,13 @@
 <template>
   <div :class="$style.menu">
-    <UiButton tag="RouterLink" :label="link.title" v-for="link in menuItems" :key="link.title" :to="link.url" />
+    <UiButton tag="RouterLink" :label="link.title" v-for="link in MENU_LINKS" :key="link.title" :to="link.url" />
   </div>
 </template>
 
 <script setup lang="ts">
 import UiButton from '@/components/ui/UiButton.vue';
 
-const menuItems = [
-  { title: 'Играть', url: '/map' },
-  { title: 'Магазин', url: '/shop' },
-];
+import { MENU_LINKS } from '@/components/main/constants';
 </script>
 
 <style module>
