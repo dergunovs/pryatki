@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.dasha">
+  <div :class="[$style.dasha, props.isSearching && $style.searching]">
     <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
     <img :src="imageAxe" :class="$style.axe" alt="Axe" width="398" height="424" loading="lazy" />
   </div>
@@ -8,6 +8,12 @@
 <script setup lang="ts">
 import imageBody from '@/components/dasha/images/body.png';
 import imageAxe from '@/components/dasha/images/axe.png';
+
+interface IProps {
+  isSearching?: boolean;
+}
+
+const props = defineProps<IProps>();
 </script>
 
 <style module>
@@ -32,6 +38,17 @@ import imageAxe from '@/components/dasha/images/axe.png';
   animation: rotate 1s infinite;
 }
 
+.searching {
+  position: absolute;
+  width: 100px;
+  animation: walk 3s;
+}
+
+.searching .axe {
+  width: 64px;
+  top: 16%;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -43,6 +60,15 @@ import imageAxe from '@/components/dasha/images/axe.png';
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes walk {
+  from {
+    top: -140px;
+  }
+  to {
+    top: 304px;
   }
 }
 </style>

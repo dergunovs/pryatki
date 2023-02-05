@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.items">
     <button
-      @click="emit('choose', i + 1)"
+      @click="emit('choise', i.toString())"
       v-for="(item, i) in props.items"
       :key="`item${i}`"
       :disabled="props.isSearching"
@@ -9,12 +9,12 @@
     >
       <img
         :src="item"
-        :class="[$style.itemImage, i + 1 === props.choosenItem && $style.itemChoosen]"
+        :class="[$style.itemImage, i.toString() === props.choosenItem && $style.itemChoosen]"
         alt="Место"
         loading="lazy"
       />
 
-      <ThePlayer v-if="i + 1 === props.choosenItem" isHidden :isSearching="props.isSearching" />
+      <ThePlayer v-if="i.toString() === props.choosenItem" isHidden :isSearching="props.isSearching" />
     </button>
   </div>
 </template>
@@ -24,12 +24,12 @@ import ThePlayer from '@/components/player/ThePlayer.vue';
 
 interface IProps {
   items: string[];
-  choosenItem: number;
+  choosenItem?: string;
   isSearching: boolean;
 }
 
 const props = defineProps<IProps>();
-const emit = defineEmits(['choose']);
+const emit = defineEmits(['choise']);
 </script>
 
 <style module>

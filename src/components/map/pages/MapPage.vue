@@ -1,7 +1,7 @@
 <template>
   <div v-if="map" :class="map">
     <MapInit v-if="isInit" :title="map.title" />
-    <MapCount v-if="isCount" />
+    <MapCounter v-if="isCount" />
 
     <MapImage v-if="!isInit" :map="map.map" :items="map.items" :isSearching="isSearching" />
   </div>
@@ -12,12 +12,12 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 import MapInit from '@/components/map/MapInit.vue';
-import MapCount from '@/components/map/MapCount.vue';
+import MapCounter from '@/components/map/MapCounter.vue';
 import MapImage from '@/components/map/MapImage.vue';
 
 import { useMap } from '@/components/map/composables/useMap';
-import { MAP_LIST } from '@/components/map/constants';
 import { IMap } from '@/components/map/interface';
+import { MAP_LIST } from '@/components/map/constants';
 
 const route = useRoute();
 const { isInit, isCount, isSearching } = useMap();

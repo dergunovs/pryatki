@@ -2,9 +2,11 @@
   <div :class="$style.container">
     <img :src="props.map" :class="$style.map" alt="Карта" loading="lazy" />
 
+    <MapItems :items="props.items" :choosenItem="choosenItem" :isSearching="props.isSearching" @choise="setItem" />
+
     <ThePlayer v-if="!choosenItem" />
 
-    <MapItems :items="props.items" :choosenItem="choosenItem" :isSearching="props.isSearching" @choose="setItem" />
+    <MapSearching v-if="props.isSearching" />
   </div>
 </template>
 
@@ -12,6 +14,7 @@
 import { ref, watch } from 'vue';
 
 import MapItems from '@/components/map/MapItems.vue';
+import MapSearching from '@/components/map/MapSearching.vue';
 import ThePlayer from '@/components/player/ThePlayer.vue';
 
 interface IProps {
@@ -22,16 +25,16 @@ interface IProps {
 
 const props = defineProps<IProps>();
 
-const choosenItem = ref(0);
+const choosenItem = ref();
 
-function setItem(item: number) {
+function setItem(item: string) {
   choosenItem.value = item;
 }
 
 watch(
   () => props.isSearching,
   () => {
-    if (!choosenItem.value && props.isSearching) choosenItem.value = 1;
+    if (!choosenItem.value && props.isSearching) choosenItem.value = '0';
   }
 );
 </script>
