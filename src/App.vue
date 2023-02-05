@@ -23,7 +23,7 @@ const route = useRoute();
 const background = computed(() => (route.path === '/' ? BackgroundAnimated : BackgroundBase));
 </script>
 
-<style module lang="scss">
+<style module>
 .layout {
   position: relative;
   overflow: hidden;

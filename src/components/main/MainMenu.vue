@@ -13,7 +13,7 @@ const menuItems = [
 ];
 </script>
 
-<style module lang="scss">
+<style module>
 .menu {
   display: flex;
   flex-direction: column;

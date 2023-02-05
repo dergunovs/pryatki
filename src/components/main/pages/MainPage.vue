@@ -7,13 +7,13 @@
 </template>
 
 <script setup lang="ts">
-import MainMenu from '@/components/MainMenu.vue';
-import TheDasha from '@/components/TheDasha.vue';
+import MainMenu from '@/components/main/MainMenu.vue';
+import TheDasha from '@/components/dasha/TheDasha.vue';
 
 import UiTitle from '@/components/ui/UiTitle.vue';
 </script>
 
-<style module lang="scss">
+<style module>
 .main {
   position: relative;
   display: flex;

@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style module lang="scss">
+<style module>
 .background {
   --u: 3vmin;
   --c1: var(--color-background-transparent);

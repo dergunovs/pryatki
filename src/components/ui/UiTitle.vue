@@ -2,7 +2,7 @@
   <h1 :class="$style.title"><slot></slot></h1>
 </template>
 
-<style module lang="scss">
+<style module>
 .title {
   font-size: 2.5rem;
   font-weight: 700;

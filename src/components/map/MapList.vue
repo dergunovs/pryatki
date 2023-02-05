@@ -1,14 +1,7 @@
 <template>
   <div :class="$style.maps">
     <RouterLink :to="`/map/${map.id}`" v-for="map in MAP_LIST" :key="map.id" :class="$style.map">
-      <img
-        :src="`/images/maps/${map.icon}`"
-        :class="$style.icon"
-        width="512"
-        height="512"
-        :alt="map.title"
-        loading="lazy"
-      />
+      <img :src="map.icon" :class="$style.icon" width="512" height="512" :alt="map.title" loading="lazy" />
       <div :class="$style.title">{{ map.title }}</div>
     </RouterLink>
   </div>
@@ -18,7 +11,7 @@
 import { MAP_LIST } from '@/components/map/constants';
 </script>
 
-<style module lang="scss">
+<style module>
 .maps {
   display: flex;
   flex-wrap: wrap;

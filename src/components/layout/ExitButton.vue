@@ -17,7 +17,7 @@ function exit() {
 }
 </script>
 
-<style module lang="scss">
+<style module>
 .exit {
   display: flex;
   align-items: center;

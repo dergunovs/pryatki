@@ -1,11 +1,16 @@
 <template>
   <div :class="$style.dasha">
-    <img src="/images/dasha/body.png" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
-    <img src="/images/dasha/axe.png" :class="$style.axe" alt="Axe" width="398" height="424" loading="lazy" />
+    <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
+    <img :src="imageAxe" :class="$style.axe" alt="Axe" width="398" height="424" loading="lazy" />
   </div>
 </template>
 
-<style module lang="scss">
+<script setup lang="ts">
+import imageBody from '@/components/dasha/images/body.png';
+import imageAxe from '@/components/dasha/images/axe.png';
+</script>
+
+<style module>
 .dasha {
   position: relative;
   max-width: 80%;

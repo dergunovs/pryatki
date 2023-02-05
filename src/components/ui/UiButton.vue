@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<IProps>(), {
 });
 </script>
 
-<style module lang="scss">
+<style module>
 .link {
   padding: 12px 48px;
   color: var(--color-primary);

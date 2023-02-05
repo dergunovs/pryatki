@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style module lang="scss">
+<style module>
 .bg {
   animation: slide 3s ease-in-out infinite alternate;
   background-image: linear-gradient(-60deg, var(--color-background) 50%, var(--color-background-dark) 50%);
