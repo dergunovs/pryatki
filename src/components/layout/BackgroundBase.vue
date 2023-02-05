@@ -6,7 +6,7 @@
 
 <style module>
 .background {
-  --u: 3vmin;
+  --u: 2vmin;
   --c1: var(--color-background-transparent);
   --c2: var(--color-background-dark-transparent);
   --s1: var(--color-black-transparent);

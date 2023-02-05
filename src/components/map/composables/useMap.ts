@@ -1,14 +1,11 @@
 import { ref } from 'vue';
 
 export function useMap() {
-  const isInit = ref(false);
+  const isInit = ref(true);
   const isCount = ref(false);
+  const isSearching = ref(false);
 
   function init() {
-    setTimeout(() => {
-      isInit.value = true;
-    }, 500);
-
     setTimeout(() => {
       isInit.value = false;
     }, 3000);
@@ -21,11 +18,18 @@ export function useMap() {
 
     setTimeout(() => {
       isCount.value = false;
-    }, 10000);
+    }, 10900);
+  }
+
+  function search() {
+    setTimeout(() => {
+      isSearching.value = true;
+    }, 11000);
   }
 
   init();
   count();
+  search();
 
-  return { isInit, isCount };
+  return { isInit, isCount, isSearching };
 }

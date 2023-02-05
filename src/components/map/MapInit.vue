@@ -1,10 +1,8 @@
 <template>
-  <Transition>
-    <div :class="$style.container">
-      <div :class="$style.title">{{ props.title }}</div>
-      <div>Скорее выбирай место,<br />где будешь прятаться!</div>
-    </div>
-  </Transition>
+  <div :class="$style.container">
+    <div :class="$style.title">{{ props.title }}</div>
+    <div>Скорее выбирай место,<br />где будешь прятаться!</div>
+  </div>
 </template>
 
 <script setup lang="ts">

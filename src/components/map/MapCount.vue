@@ -1,17 +1,14 @@
 <template>
-  <Transition>
-    <div :class="$style.count">{{ count }}</div>
-  </Transition>
+  <div :class="$style.count">{{ count }}</div>
 </template>
 
 <script setup lang="ts">
 import { ref, onBeforeUnmount } from 'vue';
 
-const count = ref(10);
+const count = ref(7);
+const interval = setInterval(() => count.value--, 1000);
 
-const counter = setInterval(() => count.value--, 1000);
-
-onBeforeUnmount(() => clearInterval(counter));
+onBeforeUnmount(() => clearInterval(interval));
 </script>
 
 <style module>
@@ -19,9 +16,13 @@ onBeforeUnmount(() => clearInterval(counter));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-shadow: 2px 2px var(--color-white);
-  padding-top: 12px;
+  padding-top: 8px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin-left: -16px;
 }
 </style>

@@ -34,15 +34,5 @@
 
 body {
   margin: 0 auto;
-  max-width: 420px;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 300ms ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+  max-width: 480px;
 }
