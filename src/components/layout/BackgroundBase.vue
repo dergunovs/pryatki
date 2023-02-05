@@ -11,7 +11,6 @@
   --c2: var(--color-background-dark-transparent);
   --s1: var(--color-black-transparent);
   --gp: 50% / calc(var(--u) * 10) calc(var(--u) * 10);
-  height: 100vh;
   background: repeating-conic-gradient(
         from 0deg at 50% 13.75%,
         var(--s1) 0 20.55%,
