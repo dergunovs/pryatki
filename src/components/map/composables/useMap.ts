@@ -45,7 +45,7 @@ export function useMap(map: ComputedRef<IMap | undefined>) {
       let items = [...Array(map.value.items.length).keys()];
 
       for (let i = 0; i < map.value.itemsToFind; i++) {
-        const foundItem = Math.floor(Math.random() * items.length);
+        const foundItem = items[Math.floor(Math.random() * items.length)];
         items = items.filter((item: number) => item !== foundItem);
 
         foundItems.value = [...foundItems.value, foundItem];
