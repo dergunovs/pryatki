@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.player, props.isHidden && $style.hidden, props.isSearching && $style.searching]">
+  <div :class="[$style.player, props.isHidden && $style.hidden, props.isSearch && $style.search]">
     <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
   </div>
 </template>
@@ -9,7 +9,7 @@ import imageBody from '@/components/player/images/body.png';
 
 interface IProps {
   isHidden?: boolean;
-  isSearching?: boolean;
+  isSearch?: boolean;
 }
 
 const props = defineProps<IProps>();
@@ -23,7 +23,7 @@ const props = defineProps<IProps>();
 }
 
 .body {
-  width: 200px;
+  width: 192px;
   height: auto;
   transition: all 300ms;
   animation: rotate 1s infinite;
@@ -34,16 +34,16 @@ const props = defineProps<IProps>();
 }
 
 .hidden .body {
-  width: 100px;
+  width: 96px;
   animation: rotate 100ms infinite;
 }
 
-.searching {
+.search {
   top: 16px;
   left: 16px;
 }
 
-.searching .body {
+.search .body {
   animation: none;
 }
 

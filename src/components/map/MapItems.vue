@@ -4,7 +4,7 @@
       @click="emit('choise', i.toString())"
       v-for="(item, i) in props.items"
       :key="`item${i}`"
-      :disabled="props.isSearching"
+      :disabled="props.isSearch || props.isDecision"
       :class="$style.item"
     >
       <img
@@ -14,7 +14,7 @@
         loading="lazy"
       />
 
-      <ThePlayer v-if="i.toString() === props.choosenItem" isHidden :isSearching="props.isSearching" />
+      <ThePlayer v-if="i.toString() === props.choosenItem" isHidden :isSearch="props.isSearch" />
     </button>
   </div>
 </template>
@@ -25,7 +25,8 @@ import ThePlayer from '@/components/player/ThePlayer.vue';
 interface IProps {
   items: string[];
   choosenItem?: string;
-  isSearching: boolean;
+  isSearch: boolean;
+  isDecision: boolean;
 }
 
 const props = defineProps<IProps>();
@@ -48,6 +49,7 @@ const emit = defineEmits(['choise']);
   max-width: 50%;
   background: none;
   border: 0;
+  z-index: 2;
 }
 
 .itemImage {

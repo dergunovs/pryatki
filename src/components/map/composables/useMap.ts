@@ -3,7 +3,8 @@ import { ref } from 'vue';
 export function useMap() {
   const isInit = ref(true);
   const isCount = ref(false);
-  const isSearching = ref(false);
+  const isSearch = ref(false);
+  const isDecision = ref(false);
 
   function init() {
     setTimeout(() => {
@@ -23,13 +24,24 @@ export function useMap() {
 
   function search() {
     setTimeout(() => {
-      isSearching.value = true;
+      isSearch.value = true;
     }, 11000);
+
+    setTimeout(() => {
+      isSearch.value = false;
+    }, 20000);
+  }
+
+  function decision() {
+    setTimeout(() => {
+      isDecision.value = true;
+    }, 19900);
   }
 
   init();
   count();
   search();
+  decision();
 
-  return { isInit, isCount, isSearching };
+  return { isInit, isCount, isSearch, isDecision };
 }

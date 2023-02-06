@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.dasha, props.isSearching && $style.searching]">
+  <div :class="[$style.dasha, props.isSearch && $style.search]">
     <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
     <img :src="imageAxe" :class="$style.axe" alt="Axe" width="398" height="424" loading="lazy" />
   </div>
@@ -10,7 +10,7 @@ import imageBody from '@/components/dasha/images/body.png';
 import imageAxe from '@/components/dasha/images/axe.png';
 
 interface IProps {
-  isSearching?: boolean;
+  isSearch?: boolean;
 }
 
 const props = defineProps<IProps>();
@@ -20,7 +20,7 @@ const props = defineProps<IProps>();
 .dasha {
   position: relative;
   max-width: 80%;
-  z-index: 1;
+  z-index: 3;
 }
 
 .body {
@@ -38,15 +38,16 @@ const props = defineProps<IProps>();
   animation: rotate 1s infinite;
 }
 
-.searching {
+.search {
   position: absolute;
-  width: 100px;
+  width: 128px;
+  height: 160px;
   animation: walk 3s;
 }
 
-.searching .axe {
+.search .axe {
   width: 64px;
-  top: 16%;
+  top: 20%;
 }
 
 @keyframes rotate {
@@ -68,7 +69,7 @@ const props = defineProps<IProps>();
     top: -140px;
   }
   to {
-    top: 304px;
+    top: calc(50% - 80px);
   }
 }
 </style>
