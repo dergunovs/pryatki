@@ -1,10 +1,14 @@
-import { ref } from 'vue';
+import { ComputedRef, ref } from 'vue';
 
-export function useMap() {
+import { IMap } from '@/components/map/interface';
+
+export function useMap(map: ComputedRef<IMap | undefined>) {
   const isInit = ref(true);
   const isCount = ref(false);
   const isSearch = ref(false);
   const isDecision = ref(false);
+
+  const foundItems = ref<number[]>([]);
 
   function init() {
     setTimeout(() => {
@@ -35,6 +39,17 @@ export function useMap() {
   function decision() {
     setTimeout(() => {
       isDecision.value = true;
+
+      if (!map.value) return;
+
+      let items = [...Array(map.value.items.length).keys()];
+
+      for (let i = 0; i < map.value.itemsToFind; i++) {
+        const foundItem = Math.floor(Math.random() * items.length);
+        items = items.filter((item: number) => item !== foundItem);
+
+        foundItems.value = [...foundItems.value, foundItem];
+      }
     }, 19900);
   }
 
@@ -43,5 +58,5 @@ export function useMap() {
   search();
   decision();
 
-  return { isInit, isCount, isSearch, isDecision };
+  return { isInit, isCount, isSearch, isDecision, foundItems };
 }

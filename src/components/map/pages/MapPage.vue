@@ -3,7 +3,14 @@
     <MapInit v-if="isInit" :title="map.title" />
     <MapCounter v-if="isCount" />
 
-    <MapImage v-if="!isInit" :map="map.map" :items="map.items" :isSearch="isSearch" :isDecision="isDecision" />
+    <MapImage
+      v-if="!isInit"
+      :map="map.map"
+      :items="map.items"
+      :foundItems="foundItems"
+      :isSearch="isSearch"
+      :isDecision="isDecision"
+    />
   </div>
 </template>
 
@@ -20,9 +27,10 @@ import { IMap } from '@/components/map/interface';
 import { MAP_LIST } from '@/components/map/constants';
 
 const route = useRoute();
-const { isInit, isCount, isSearch, isDecision } = useMap();
 
 const map = computed(() => MAP_LIST.find((map: IMap) => map.id === route.params.id));
+
+const { isInit, isCount, isSearch, isDecision, foundItems } = useMap(map);
 </script>
 
 <style module>

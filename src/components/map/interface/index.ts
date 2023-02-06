@@ -4,4 +4,5 @@ export interface IMap {
   icon: string;
   map: string;
   items: string[];
+  itemsToFind: number;
 }

@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.items">
     <button
-      @click="emit('choise', i.toString())"
+      @click="emit('choise', i)"
       v-for="(item, i) in props.items"
       :key="`item${i}`"
       :disabled="props.isSearch || props.isDecision"
@@ -9,12 +9,21 @@
     >
       <img
         :src="item"
-        :class="[$style.itemImage, i.toString() === props.choosenItem && $style.itemChoosen]"
+        :class="[
+          $style.itemImage,
+          i === props.choosenItem && $style.itemChoosen,
+          props.foundItems.includes(i) && $style.found,
+        ]"
         alt="Место"
         loading="lazy"
       />
 
-      <ThePlayer v-if="i.toString() === props.choosenItem" isHidden :isSearch="props.isSearch" />
+      <ThePlayer
+        v-if="i === props.choosenItem"
+        isHidden
+        :isSearch="props.isSearch"
+        :class="props.foundItems.includes(i) && $style.found"
+      />
     </button>
   </div>
 </template>
@@ -24,7 +33,8 @@ import ThePlayer from '@/components/player/ThePlayer.vue';
 
 interface IProps {
   items: string[];
-  choosenItem?: string;
+  choosenItem?: number;
+  foundItems: number[];
   isSearch: boolean;
   isDecision: boolean;
 }
@@ -62,5 +72,9 @@ const emit = defineEmits(['choise']);
   position: relative;
   filter: drop-shadow(0 0 8px var(--color-primary));
   z-index: 2;
+}
+
+.found {
+  filter: brightness(0.2) drop-shadow(0 0 8px var(--color-red));
 }
 </style>

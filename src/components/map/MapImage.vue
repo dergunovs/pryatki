@@ -5,12 +5,13 @@
     <MapItems
       :items="props.items"
       :choosenItem="choosenItem"
+      :foundItems="props.foundItems"
       :isSearch="props.isSearch"
       :isDecision="props.isDecision"
       @choise="setItem"
     />
 
-    <ThePlayer v-if="!choosenItem" />
+    <ThePlayer v-if="choosenItem === undefined" />
 
     <MapSearch v-if="props.isSearch" />
 
@@ -30,22 +31,23 @@ import TheDasha from '@/components/dasha/TheDasha.vue';
 interface IProps {
   map: string;
   items: string[];
+  foundItems: number[];
   isSearch: boolean;
   isDecision: boolean;
 }
 
 const props = defineProps<IProps>();
 
-const choosenItem = ref();
+const choosenItem = ref<number>();
 
-function setItem(item: string) {
+function setItem(item: number) {
   choosenItem.value = item;
 }
 
 watch(
   () => props.isSearch,
   () => {
-    if (!choosenItem.value && props.isSearch) choosenItem.value = '0';
+    if (!choosenItem.value && props.isSearch) choosenItem.value = 0;
   }
 );
 </script>

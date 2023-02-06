@@ -16,5 +16,6 @@ export const MAP_LIST: IMap[] = [
     icon: snowIcon,
     map: snowMap,
     items: [snowItem1, snowItem2, snowItem3, snowItem4, snowItem5, snowItem6],
+    itemsToFind: 3,
   },
 ];
