@@ -33,6 +33,6 @@ function exit() {
   color: var(--color-white);
   border: none;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 3;
 }
 </style>
