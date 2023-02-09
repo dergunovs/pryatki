@@ -1,18 +1,13 @@
 <template>
   <div :class="[$style.player, props.isHidden && $style.hidden, props.isSearch && $style.search]">
-    <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
+    <img :src="imageBody" :class="$style.body" alt="player" width="904" height="1413" />
   </div>
 </template>
 
 <script setup lang="ts">
 import imageBody from '@/components/player/images/body.png';
 
-interface IProps {
-  isHidden?: boolean;
-  isSearch?: boolean;
-}
-
-const props = defineProps<IProps>();
+const props = defineProps<{ isHidden?: boolean; isSearch?: boolean }>();
 </script>
 
 <style module>

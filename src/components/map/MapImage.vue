@@ -1,8 +1,9 @@
 <template>
   <div :class="$style.container">
-    <img :src="props.map" :class="$style.map" alt="Карта" loading="lazy" />
+    <img :src="props.map" :class="$style.map" alt="Карта" />
 
     <MapItems
+      v-if="props.isCount || props.isSearch || props.isDecision"
       :items="props.items"
       :choosenItem="choosenItem"
       :foundItems="props.foundItems"
@@ -28,15 +29,16 @@ import MapSearch from '@/components/map/MapSearch.vue';
 import ThePlayer from '@/components/player/ThePlayer.vue';
 import TheDasha from '@/components/dasha/TheDasha.vue';
 
-interface IProps {
+const props = defineProps<{
   map: string;
   items: string[];
   foundItems: number[];
+  isCount: boolean;
   isSearch: boolean;
   isDecision: boolean;
-}
+}>();
 
-const props = defineProps<IProps>();
+const emit = defineEmits(['decision']);
 
 const choosenItem = ref<number>();
 
@@ -48,6 +50,16 @@ watch(
   () => props.isSearch,
   () => {
     if (!choosenItem.value && props.isSearch) choosenItem.value = 0;
+  }
+);
+
+watch(
+  () => props.foundItems,
+  () => {
+    if (props.foundItems && choosenItem.value !== undefined) {
+      const isPlayerWon = !props.foundItems.includes(choosenItem.value);
+      emit('decision', isPlayerWon);
+    }
   }
 );
 </script>

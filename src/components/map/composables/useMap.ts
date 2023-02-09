@@ -3,16 +3,17 @@ import { ComputedRef, ref } from 'vue';
 import { IMap } from '@/components/map/interface';
 
 export function useMap(map: ComputedRef<IMap | undefined>) {
-  const isInit = ref(true);
+  const isIntro = ref(true);
   const isCount = ref(false);
   const isSearch = ref(false);
   const isDecision = ref(false);
+  const isOutro = ref(false);
 
   const foundItems = ref<number[]>([]);
 
-  function init() {
+  function intro() {
     setTimeout(() => {
-      isInit.value = false;
+      isIntro.value = false;
     }, 3000);
   }
 
@@ -23,7 +24,7 @@ export function useMap(map: ComputedRef<IMap | undefined>) {
 
     setTimeout(() => {
       isCount.value = false;
-    }, 10900);
+    }, 10990);
   }
 
   function search() {
@@ -45,18 +46,31 @@ export function useMap(map: ComputedRef<IMap | undefined>) {
       let items = [...Array(map.value.items.length).keys()];
 
       for (let i = 0; i < map.value.itemsToFind; i++) {
-        const foundItem = items[Math.floor(Math.random() * items.length)];
-        items = items.filter((item: number) => item !== foundItem);
+        setTimeout(() => {
+          const foundItem = items[Math.floor(Math.random() * items.length)];
+          items = items.filter((item: number) => item !== foundItem);
 
-        foundItems.value = [...foundItems.value, foundItem];
+          foundItems.value = [...foundItems.value, foundItem];
+        }, (i + 1) * 400);
       }
-    }, 19900);
+    }, 19990);
+
+    setTimeout(() => {
+      isDecision.value = false;
+    }, 24000);
   }
 
-  init();
+  function outro() {
+    setTimeout(() => {
+      isOutro.value = true;
+    }, 24990);
+  }
+
+  intro();
   count();
   search();
   decision();
+  outro();
 
-  return { isInit, isCount, isSearch, isDecision, foundItems };
+  return { isIntro, isCount, isSearch, isDecision, isOutro, foundItems };
 }

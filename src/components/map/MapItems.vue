@@ -15,7 +15,6 @@
           props.foundItems.includes(i) && $style.found,
         ]"
         alt="Место"
-        loading="lazy"
       />
 
       <ThePlayer
@@ -31,15 +30,14 @@
 <script setup lang="ts">
 import ThePlayer from '@/components/player/ThePlayer.vue';
 
-interface IProps {
+const props = defineProps<{
   items: string[];
   choosenItem?: number;
   foundItems: number[];
   isSearch: boolean;
   isDecision: boolean;
-}
+}>();
 
-const props = defineProps<IProps>();
 const emit = defineEmits(['choise']);
 </script>
 

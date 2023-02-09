@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.maps">
     <RouterLink :to="`/map/${map.id}`" v-for="map in MAP_LIST" :key="map.id" :class="$style.map">
-      <img :src="map.icon" :class="$style.icon" width="512" height="512" :alt="map.title" loading="lazy" />
+      <img :src="map.icon" :class="$style.icon" width="512" height="512" :alt="map.title" />
       <div :class="$style.title">{{ map.title }}</div>
     </RouterLink>
   </div>

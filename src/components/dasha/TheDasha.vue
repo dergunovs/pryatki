@@ -1,7 +1,7 @@
 <template>
   <div :class="[$style.dasha, props.isSearch && $style.search]">
-    <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" loading="lazy" />
-    <img :src="imageAxe" :class="$style.axe" alt="Axe" width="398" height="424" loading="lazy" />
+    <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" />
+    <img :src="imageAxe" :class="$style.axe" alt="Axe" width="398" height="424" />
   </div>
 </template>
 
@@ -9,11 +9,7 @@
 import imageBody from '@/components/dasha/images/body.png';
 import imageAxe from '@/components/dasha/images/axe.png';
 
-interface IProps {
-  isSearch?: boolean;
-}
-
-const props = defineProps<IProps>();
+const props = defineProps<{ isSearch?: boolean }>();
 </script>
 
 <style module>

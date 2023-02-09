@@ -3,12 +3,7 @@
 </template>
 
 <script setup lang="ts">
-interface IProps {
-  tag: 'button' | 'RouterLink';
-  label: string;
-}
-
-const props = withDefaults(defineProps<IProps>(), {
+const props = withDefaults(defineProps<{ tag: 'button' | 'RouterLink'; label: string }>(), {
   tag: 'button',
 });
 </script>
