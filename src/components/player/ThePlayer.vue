@@ -1,18 +1,34 @@
 <template>
-  <div :class="[$style.player, props.isHidden && $style.hidden, props.isSearch && $style.search]">
+  <div
+    :class="[
+      $style.player,
+      props.isHidden && $style.hidden,
+      props.isSearch && $style.search,
+      props.isFound && $style.found,
+    ]"
+  >
     <img :src="imageBody" :class="$style.body" alt="player" width="904" height="1413" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import imageBody from '@/components/player/images/body.png';
 
-const props = defineProps<{ isHidden?: boolean; isSearch?: boolean }>();
+const props = defineProps<{
+  isHidden?: boolean;
+  isSearch?: boolean;
+  isFound?: boolean;
+  isPlayerWon?: boolean;
+}>();
+
+const position = computed(() => (props.isPlayerWon ? 'relative' : 'absolute'));
 </script>
 
 <style module>
 .player {
-  position: absolute;
+  position: v-bind(position);
   z-index: 1;
   transition: all 300ms;
 }
@@ -22,6 +38,10 @@ const props = defineProps<{ isHidden?: boolean; isSearch?: boolean }>();
   height: auto;
   transition: all 300ms;
   animation: rotate 1s infinite;
+}
+
+.found {
+  filter: brightness(0.2) drop-shadow(0 0 8px var(--color-red));
 }
 
 .hidden {

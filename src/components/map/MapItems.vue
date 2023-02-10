@@ -21,7 +21,7 @@
         v-if="i === props.choosenItem"
         isHidden
         :isSearch="props.isSearch"
-        :class="props.foundItems.includes(i) && $style.found"
+        :isFound="props.foundItems.includes(i)"
       />
     </button>
   </div>

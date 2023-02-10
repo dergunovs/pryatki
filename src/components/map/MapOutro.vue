@@ -2,17 +2,27 @@
   <div :class="$style.container">
     <div :class="$style.message">{{ message }}</div>
 
-    <UiButton @click="emit('restart')" v-if="!props.isPlayerWon" label="Переиграть" />
+    <template v-if="props.isPlayerWon">
+      <UiButton @click="emit('nextMap')" label="Дальше" />
+      <ThePlayer isPlayerWon />
+    </template>
+
+    <template v-else>
+      <UiButton @click="emit('restart')" label="Переиграть" />
+      <TheDasha />
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import ThePlayer from '@/components/player/ThePlayer.vue';
+import TheDasha from '@/components/dasha/TheDasha.vue';
 import UiButton from '@/components/ui/UiButton.vue';
 
 const props = defineProps<{ isPlayerWon: boolean }>();
-const emit = defineEmits(['restart']);
+const emit = defineEmits(['nextMap', 'restart']);
 
 const message = computed(() => (props.isPlayerWon ? 'Вы выйграли!' : 'Вы проиграли!'));
 </script>

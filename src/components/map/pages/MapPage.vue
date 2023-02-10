@@ -15,13 +15,13 @@
       @decision="setPlayerState"
     />
 
-    <MapOutro v-if="isOutro" :isPlayerWon="isPlayerWon" @restart="emit('restart')" />
+    <MapOutro v-if="isOutro" :isPlayerWon="isPlayerWonMap" @nextMap="handleNextPage" @restart="emit('restart')" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import MapIntro from '@/components/map/MapIntro.vue';
 import MapCounter from '@/components/map/MapCounter.vue';
@@ -35,15 +35,23 @@ import { MAP_LIST } from '@/components/map/constants';
 const emit = defineEmits(['restart']);
 
 const route = useRoute();
+const router = useRouter();
 
-const isPlayerWon = ref(false);
+const isPlayerWonMap = ref(false);
 
 const map = computed(() => MAP_LIST.find((map: IMap) => map.id === route.params.id));
 
 const { isIntro, isCount, isSearch, isDecision, isOutro, foundItems } = useMap(map);
 
 function setPlayerState(state: boolean) {
-  isPlayerWon.value = state;
+  isPlayerWonMap.value = state;
+}
+
+function handleNextPage() {
+  const currentMapId = Number(route.params.id);
+  const nextPage = currentMapId < MAP_LIST.length ? `/map/${currentMapId + 1}` : '/credits';
+
+  router.push(nextPage);
 }
 </script>
 

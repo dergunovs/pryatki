@@ -28,7 +28,6 @@
 * {
   font-family: font, sans-serif;
   font-size: 1rem;
-  font-feature-settings: 'lnum' 1;
   line-height: 1.5;
   box-sizing: border-box;
 }

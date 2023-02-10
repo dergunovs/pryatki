@@ -7,4 +7,6 @@ export const routes: RouteRecordRaw[] = [
 
   { path: '/map', name: 'Maps', component: () => import('@/components/map/pages/MapsPage.vue') },
   { path: '/map/:id', name: 'Map', component: () => import('@/components/map/pages/MapPage.vue') },
+
+  { path: '/credits', name: 'Credits', component: () => import('@/components/credits/pages/CreditsPage.vue') },
 ];
