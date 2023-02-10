@@ -16,9 +16,11 @@ import ExitButton from '@/components/layout/ExitButton.vue';
 import BackgroundAnimated from '@/components/layout/BackgroundAnimated.vue';
 import BackgroundBase from '@/components/layout/BackgroundBase.vue';
 
+import { MAIN_URL } from '@/components/main/constants';
+
 const route = useRoute();
 
-const background = computed(() => (route.path === '/' ? BackgroundAnimated : BackgroundBase));
+const background = computed(() => (route.path === MAIN_URL ? BackgroundAnimated : BackgroundBase));
 </script>
 
 <style module>

@@ -6,14 +6,30 @@
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
+import { MAIN_URL } from '@/components/main/constants';
+import { MAP_URL } from '@/components/map/constants';
+import { CREDITS_URL } from '@/components/credits/constants';
+
 const route = useRoute();
 const router = useRouter();
 
-const isMainPage = computed(() => route.path === '/');
+const isMainPage = computed(() => route.path === MAIN_URL);
+const isCreditsPage = computed(() => route.path === CREDITS_URL);
+const isMapsPage = computed(() => route.path === MAP_URL);
+const isMapPage = computed(() => route.name === 'Map');
+
 const backIcon = computed(() => (isMainPage.value ? '×' : '⤺'));
 
 function exit() {
-  isMainPage.value ? alert('exit') : router.go(-1);
+  if (isMainPage.value) {
+    alert('exit');
+  } else if (isMapPage.value) {
+    router.push(MAP_URL);
+  } else if (isCreditsPage.value || isMapsPage.value) {
+    router.push(MAIN_URL);
+  } else {
+    router.go(-1);
+  }
 }
 </script>
 

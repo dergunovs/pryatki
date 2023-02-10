@@ -9,6 +9,8 @@ import snowItem6 from '@/components/map/images/snow-item-6.png';
 
 import { IMap } from '@/components/map/interface';
 
+export const MAP_URL = '/maps';
+
 export const MAP_LIST: IMap[] = [
   {
     id: '0',

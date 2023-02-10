@@ -30,7 +30,8 @@ import MapOutro from '@/components/map/MapOutro.vue';
 
 import { useMap } from '@/components/map/composables/useMap';
 import { IMap } from '@/components/map/interface';
-import { MAP_LIST } from '@/components/map/constants';
+import { MAP_LIST, MAP_URL } from '@/components/map/constants';
+import { CREDITS_URL } from '@/components/credits/constants';
 
 const emit = defineEmits(['restart']);
 
@@ -49,7 +50,7 @@ function setPlayerState(state: boolean) {
 
 function handleNextPage() {
   const currentMapId = Number(route.params.id);
-  const nextPage = currentMapId < MAP_LIST.length ? `/map/${currentMapId + 1}` : '/credits';
+  const nextPage = currentMapId < MAP_LIST.length ? `${MAP_URL}/${currentMapId + 1}` : CREDITS_URL;
 
   router.push(nextPage);
 }
