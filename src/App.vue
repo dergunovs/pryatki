@@ -1,6 +1,6 @@
 <template>
   <LayoutBase v-show="isLoaded">
-    <router-view :class="$style.content" />
+    <router-view :class="$style.content" @restart="key++" :key="key" />
   </LayoutBase>
 </template>
 
@@ -10,6 +10,7 @@ import { ref, onMounted } from 'vue';
 import LayoutBase from '@/components/layout/LayoutBase.vue';
 
 const isLoaded = ref(false);
+const key = ref(0);
 
 onMounted(() => {
   setTimeout(() => {

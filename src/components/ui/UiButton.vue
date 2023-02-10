@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ tag: 'button' | 'RouterLink'; label: string }>(), {
+const props = withDefaults(defineProps<{ tag?: 'button' | 'RouterLink'; label: string }>(), {
   tag: 'button',
 });
 </script>

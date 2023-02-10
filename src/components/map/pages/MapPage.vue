@@ -15,7 +15,7 @@
       @decision="setPlayerState"
     />
 
-    <MapOutro v-if="isOutro" :isPlayerWon="isPlayerWon" />
+    <MapOutro v-if="isOutro" :isPlayerWon="isPlayerWon" @restart="emit('restart')" />
   </div>
 </template>
 
@@ -31,6 +31,8 @@ import MapOutro from '@/components/map/MapOutro.vue';
 import { useMap } from '@/components/map/composables/useMap';
 import { IMap } from '@/components/map/interface';
 import { MAP_LIST } from '@/components/map/constants';
+
+const emit = defineEmits(['restart']);
 
 const route = useRoute();
 
