@@ -13,11 +13,19 @@ export const MAP_URL = '/maps';
 
 export const MAP_LIST: IMap[] = [
   {
-    id: '0',
+    id: 0,
     title: 'Снежная',
     icon: snowIcon,
     map: snowMap,
     items: [snowItem1, snowItem2, snowItem3, snowItem4, snowItem5, snowItem6],
-    itemsToFind: 3,
+    itemsToFind: 1,
+  },
+  {
+    id: 1,
+    title: 'Вторая',
+    icon: snowIcon,
+    map: snowMap,
+    items: [snowItem1, snowItem2, snowItem3, snowItem4, snowItem5, snowItem6],
+    itemsToFind: 2,
   },
 ];

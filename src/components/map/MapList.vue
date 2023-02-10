@@ -1,6 +1,11 @@
 <template>
   <div :class="$style.maps">
-    <RouterLink :to="`${MAP_URL}/${map.id}`" v-for="map in MAP_LIST" :key="map.id" :class="$style.map">
+    <RouterLink
+      :to="`${MAP_URL}/${map.id}`"
+      v-for="map in MAP_LIST"
+      :key="map.id"
+      :class="[$style.map, currentMap < map.id && $style.disabled]"
+    >
       <img :src="map.icon" :class="$style.icon" width="512" height="512" :alt="map.title" />
       <div :class="$style.title">{{ map.title }}</div>
     </RouterLink>
@@ -8,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import { currentMap } from '@/components/player/composables/usePlayer';
 import { MAP_URL, MAP_LIST } from '@/components/map/constants';
 </script>
 
@@ -27,6 +33,12 @@ import { MAP_URL, MAP_LIST } from '@/components/map/constants';
   text-align: center;
   text-decoration: none;
   color: var(--color-black);
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(0.4);
 }
 
 .icon {

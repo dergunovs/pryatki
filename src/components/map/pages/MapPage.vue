@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import MapIntro from '@/components/map/MapIntro.vue';
@@ -29,6 +29,7 @@ import MapImage from '@/components/map/MapImage.vue';
 import MapOutro from '@/components/map/MapOutro.vue';
 
 import { useMap } from '@/components/map/composables/useMap';
+import { setMap } from '@/components/player/composables/usePlayer';
 import { IMap } from '@/components/map/interface';
 import { MAP_LIST, MAP_URL } from '@/components/map/constants';
 import { CREDITS_URL } from '@/components/credits/constants';
@@ -40,19 +41,30 @@ const router = useRouter();
 
 const isPlayerWonMap = ref(false);
 
-const map = computed(() => MAP_LIST.find((map: IMap) => map.id === route.params.id));
+const map = computed(() => MAP_LIST.find((map: IMap) => map.id === Number(route.params.id)));
 
 const { isIntro, isCount, isSearch, isDecision, isOutro, foundItems } = useMap(map);
+
+watch(
+  () => route.params.id,
+  () => {
+    if (route.params.id) emit('restart');
+  }
+);
 
 function setPlayerState(state: boolean) {
   isPlayerWonMap.value = state;
 }
 
 function handleNextPage() {
-  const currentMapId = Number(route.params.id);
-  const nextPage = currentMapId < MAP_LIST.length ? `${MAP_URL}/${currentMapId + 1}` : CREDITS_URL;
+  const currentId = map.value?.id as number;
 
-  router.push(nextPage);
+  if (currentId < MAP_LIST.length - 1) {
+    setMap(currentId + 1);
+    router.push(`${MAP_URL}/${currentId + 1}`);
+  } else {
+    router.push(CREDITS_URL);
+  }
 }
 </script>
 

@@ -57,13 +57,13 @@ export function useMap(map: ComputedRef<IMap | undefined>) {
 
     setTimeout(() => {
       isDecision.value = false;
-    }, 24000);
+    }, 23990);
   }
 
   function outro() {
     setTimeout(() => {
       isOutro.value = true;
-    }, 25000);
+    }, 24000);
   }
 
   intro();

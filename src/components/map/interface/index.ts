@@ -1,5 +1,5 @@
 export interface IMap {
-  id: string;
+  id: number;
   title: string;
   icon: string;
   map: string;
