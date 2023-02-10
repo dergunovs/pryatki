@@ -63,7 +63,7 @@ export function useMap(map: ComputedRef<IMap | undefined>) {
   function outro() {
     setTimeout(() => {
       isOutro.value = true;
-    }, 24990);
+    }, 25000);
   }
 
   intro();
