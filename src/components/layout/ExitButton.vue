@@ -36,13 +36,11 @@ function exit() {
 <style module>
 .exit {
   display: flex;
-  align-items: center;
   justify-content: center;
   position: absolute;
   width: 36px;
   height: 36px;
-  padding-top: 4px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   top: 12px;
   right: 16px;
   background: var(--color-black-transparent);

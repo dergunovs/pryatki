@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UiTitle>Карта</UiTitle>
+    <UiTitle>Карты</UiTitle>
 
     <MapList />
   </div>
