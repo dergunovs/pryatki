@@ -28,7 +28,7 @@ import { MAP_URL, MAP_LIST } from '@/components/map/constants';
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
   width: calc(50% - 16px);
   text-align: center;
   text-decoration: none;
@@ -45,6 +45,7 @@ import { MAP_URL, MAP_LIST } from '@/components/map/constants';
   width: 80%;
   height: auto;
   animation: rotate 2s infinite;
+  filter: drop-shadow(0px 0px 8px var(--color-black));
 }
 
 .title {
