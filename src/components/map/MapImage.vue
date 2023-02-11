@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <img :src="props.map" :class="$style.map" alt="Карта" />
+    <img :src="props.background" :class="$style.background" alt="Фон карты" />
 
     <MapItems
       v-if="props.isCount || props.isSearch || props.isDecision"
@@ -30,7 +30,7 @@ import ThePlayer from '@/components/player/ThePlayer.vue';
 import TheDasha from '@/components/dasha/TheDasha.vue';
 
 const props = defineProps<{
-  map: string;
+  background: string;
   items: string[];
   foundItems: number[];
   isCount: boolean;
@@ -75,7 +75,7 @@ watch(
   margin-left: -16px;
 }
 
-.map {
+.background {
   width: 100%;
   height: 100%;
 }

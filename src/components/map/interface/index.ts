@@ -1,8 +1,9 @@
 export interface IMap {
-  id: number;
+  id: 0 | 1 | 2 | 3 | 4 | 5;
   title: string;
   icon: string;
-  map: string;
+  background: string;
   items: string[];
-  itemsToFind: number;
+  itemsToFind: 1 | 2 | 3 | 4;
+  coins: 250 | 300 | 350 | 500;
 }

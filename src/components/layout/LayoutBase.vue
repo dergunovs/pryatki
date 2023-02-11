@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.layout">
+    <PlayerCoins />
     <ExitButton />
 
     <component :is="background" :class="$style.background">
@@ -12,6 +13,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
+import PlayerCoins from '@/components/player/PlayerCoins.vue';
 import ExitButton from '@/components/layout/ExitButton.vue';
 import BackgroundAnimated from '@/components/layout/BackgroundAnimated.vue';
 import BackgroundBase from '@/components/layout/BackgroundBase.vue';

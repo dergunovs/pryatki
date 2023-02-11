@@ -6,7 +6,7 @@
 
     <MapImage
       v-if="!isIntro"
-      :map="map.map"
+      :background="map.background"
       :items="map.items"
       :foundItems="foundItems"
       :isCount="isCount"
@@ -29,7 +29,7 @@ import MapImage from '@/components/map/MapImage.vue';
 import MapOutro from '@/components/map/MapOutro.vue';
 
 import { useMap } from '@/components/map/composables/useMap';
-import { setMap } from '@/components/player/composables/usePlayer';
+import { setCurrentMap, addCoins } from '@/components/player/service';
 import { IMap } from '@/components/map/interface';
 import { MAP_LIST, MAP_URL } from '@/components/map/constants';
 import { CREDITS_URL } from '@/components/credits/constants';
@@ -54,13 +54,15 @@ watch(
 
 function setPlayerState(state: boolean) {
   isPlayerWonMap.value = state;
+
+  if (isPlayerWonMap.value) addCoins(map.value?.coins as number);
 }
 
 function handleNextPage() {
   const currentId = map.value?.id as number;
 
   if (currentId < MAP_LIST.length - 1) {
-    setMap(currentId + 1);
+    setCurrentMap(currentId + 1);
     router.push(`${MAP_URL}/${currentId + 1}`);
   } else {
     router.push(CREDITS_URL);

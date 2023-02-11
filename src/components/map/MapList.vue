@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { currentMap } from '@/components/player/composables/usePlayer';
+import { currentMap } from '@/components/player/service';
 import { MAP_URL, MAP_LIST } from '@/components/map/constants';
 </script>
 

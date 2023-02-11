@@ -43,7 +43,7 @@ function exit() {
   height: 36px;
   padding-top: 4px;
   font-size: 2rem;
-  top: 16px;
+  top: 12px;
   right: 16px;
   background: var(--color-black-transparent);
   color: var(--color-white);
