@@ -55,18 +55,17 @@ watch(
 function setPlayerState(state: boolean) {
   isPlayerWonMap.value = state;
 
-  if (isPlayerWonMap.value) addCoins(map.value?.coins as number);
+  if (isPlayerWonMap.value) {
+    addCoins(map.value?.coins as number);
+    setCurrentMap((map.value?.id as number) + 1);
+  }
 }
 
 function handleNextPage() {
-  const currentId = map.value?.id as number;
+  const currentMapId = map.value?.id as number;
+  const nextPage = currentMapId < MAP_LIST.length - 1 ? `${MAP_URL}/${currentMapId + 1}` : CREDITS_URL;
 
-  if (currentId < MAP_LIST.length - 1) {
-    setCurrentMap(currentId + 1);
-    router.push(`${MAP_URL}/${currentId + 1}`);
-  } else {
-    router.push(CREDITS_URL);
-  }
+  router.push(nextPage);
 }
 </script>
 
