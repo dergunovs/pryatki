@@ -20,4 +20,4 @@
 
 Запуск Android Studio с открытым проектом: `npx cap open android`
 
-Игнорируем рекомендации Android Studio. Добавляем виртуальное устройство, например Google Pixel, нажимаем Play.
+Игнорируем рекомендации Android Studio. Добавляем виртуальное устройство, например Google Pixel 4, нажимаем Play.

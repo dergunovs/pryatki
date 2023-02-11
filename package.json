@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@capacitor/android": "4.6.3",
+    "@capacitor/app": "4.1.1",
     "@capacitor/cli": "4.6.3",
     "@capacitor/core": "4.6.3",
     "vue": "3.2.47",
