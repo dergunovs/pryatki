@@ -1,15 +1,23 @@
 <template>
-  <component :is="props.tag" :class="$style.link">{{ props.label }}</component>
+  <component :is="props.tag" :class="$style.button">
+    {{ props.label }}
+  </component>
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ tag?: 'button' | 'RouterLink'; label: string }>(), {
-  tag: 'button',
-});
+const props = withDefaults(
+  defineProps<{
+    tag?: 'button' | 'RouterLink';
+    label: string;
+  }>(),
+  {
+    tag: 'button',
+  }
+);
 </script>
 
 <style module>
-.link {
+.button {
   padding: 12px 48px;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);

@@ -11,7 +11,8 @@
   line-height: 1.2;
   text-align: center;
   color: var(--color-black);
-  text-shadow: 2px 2px var(--color-white);
-  margin: 32px 0;
+  text-shadow: 4px 4px var(--color-white);
+  margin-top: 56px;
+  margin-bottom: 24px;
 }
 </style>

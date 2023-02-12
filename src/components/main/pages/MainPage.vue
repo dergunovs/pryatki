@@ -18,8 +18,9 @@ import UiTitle from '@/components/ui/UiTitle.vue';
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   z-index: 1;
+  padding-bottom: 24px;
 }
 </style>
