@@ -13,6 +13,6 @@
   color: var(--color-black);
   text-shadow: 4px 4px var(--color-white);
   margin-top: 56px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 </style>

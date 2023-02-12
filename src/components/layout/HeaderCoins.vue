@@ -1,12 +1,12 @@
 <template>
   <div :class="$style.coins">
-    <img :src="IconCoin" width="16" height="16" alt="Монеты" />
-    <span :class="$style.coinsValue">{{ coins }}</span>
+    <TheCoins :coins="coins" />
   </div>
 </template>
 
 <script setup lang="ts">
-import IconCoin from '@/components/player/icons/coin.svg';
+import TheCoins from '@/components/player/TheCoins.vue';
+
 import { coins } from '@/components/player/service';
 </script>
 
@@ -16,16 +16,9 @@ import { coins } from '@/components/player/service';
   left: 16px;
   top: 16px;
   z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 8px;
   background-color: var(--color-white-transparent);
   padding: 4px 12px;
   border-radius: 16px;
   box-shadow: 0 0 4px 0 var(--color-black-transparent);
-}
-
-.coinsValue {
-  height: 22px;
 }
 </style>

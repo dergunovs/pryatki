@@ -1,17 +1,20 @@
 import { ref } from 'vue';
 
 export const currentMap = ref(0);
-export const currentImage = ref(0);
 export const coins = ref(0);
+export const currentItem = ref(0);
+export const items = ref<number[]>([0]);
 
-export function checkLS() {
+export function initLS() {
   const lsCurrentMap = localStorage.getItem('pryatki_currentMap');
   const lsCoins = localStorage.getItem('pryatki_coins');
+  const lsItems = localStorage.getItem('pryatki_items');
 
-  if (lsCurrentMap && lsCoins) {
-    setCurrentMap(Number(lsCurrentMap));
-    setCoins(Number(lsCoins));
-  }
+  const isLsEmpty = lsCurrentMap !== null && lsCoins !== null && lsItems !== null ? false : true;
+
+  setCurrentMap(isLsEmpty ? currentMap.value : Number(lsCurrentMap));
+  setCoins(isLsEmpty ? coins.value : Number(lsCoins));
+  setItems(isLsEmpty ? items.value : lsItems!.split(',').map(Number));
 }
 
 export function setCurrentMap(mapToSet: number) {
@@ -27,4 +30,9 @@ export function setCoins(coinsToSet: number) {
 export function addCoins(coinsToAdd: number) {
   coins.value += coinsToAdd;
   localStorage.setItem('pryatki_coins', coins.value.toString());
+}
+
+export function setItems(itemsToSet: number[]) {
+  items.value = [...itemsToSet];
+  localStorage.setItem('pryatki_items', items.value.toString());
 }

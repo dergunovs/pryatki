@@ -7,15 +7,15 @@
       props.isFound && $style.found,
     ]"
   >
-    <img :src="PLAYER_IMAGES[currentImage].image" :class="$style.body" alt="player" width="904" height="1413" />
+    <img :src="PLAYER_ITEMS[currentItem].image" :class="$style.body" alt="player" width="904" height="1413" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { currentImage } from '@/components/player/service';
-import { PLAYER_IMAGES } from '@/components/player/constants';
+import { currentItem } from '@/components/player/service';
+import { PLAYER_ITEMS } from '@/components/player/constants';
 
 const props = defineProps<{
   isHidden?: boolean;

@@ -6,4 +6,5 @@ export const base: IPlayerItem = {
   id: 0,
   image,
   title: 'Базовый',
+  price: 0,
 };

@@ -9,14 +9,14 @@ import { ref, onMounted } from 'vue';
 
 import LayoutBase from '@/components/layout/LayoutBase.vue';
 
-import { checkLS } from '@/components/player/service';
+import { initLS } from '@/components/player/service';
 
 const isLoaded = ref(false);
 const key = ref(0);
 
 onMounted(() => {
   setTimeout(() => {
-    checkLS();
+    initLS();
     isLoaded.value = true;
   }, 300);
 });

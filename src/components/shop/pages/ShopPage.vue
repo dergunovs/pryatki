@@ -6,15 +6,15 @@
       <ThePlayer isRelativePosition />
     </div>
 
-    <div :class="$style.subTitle">Предметы игрока</div>
+    <div :class="$style.subTitle">Поменять внешность</div>
 
-    <PlayerItems />
+    <ShopItems />
   </div>
 </template>
 
 <script setup lang="ts">
 import ThePlayer from '@/components/player/ThePlayer.vue';
-import PlayerItems from '@/components/player/PlayerItems.vue';
+import ShopItems from '@/components/shop/ShopItems.vue';
 import UiTitle from '@/components/ui/UiTitle.vue';
 </script>
 
@@ -22,7 +22,7 @@ import UiTitle from '@/components/ui/UiTitle.vue';
 .shop {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 8px;
 }
 
 .player {
