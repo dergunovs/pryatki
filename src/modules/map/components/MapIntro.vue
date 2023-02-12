@@ -16,14 +16,14 @@ const props = defineProps<{ title: string }>();
   justify-content: center;
   align-items: center;
   text-align: center;
-  text-shadow: 2px 2px var(--color-white);
+  text-shadow: var(--shadow-text);
   height: 100%;
   gap: 32px;
   animation: scale 3s;
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: var(--font-l);
   font-weight: 700;
 }
 

@@ -15,19 +15,26 @@
 :root {
   --color-primary: rgb(42, 59, 179);
   --color-background: rgb(178, 242, 255);
-  --color-background-transparent: rgba(178, 242, 255, 20%);
   --color-background-dark: rgb(90, 201, 224);
-  --color-background-dark-transparent: rgba(90, 201, 224, 20%);
   --color-red: rgb(255, 0, 0);
   --color-white: rgb(255, 255, 255);
   --color-white-transparent: rgba(255, 255, 255, 80%);
   --color-black: rgb(0, 0, 0);
   --color-black-transparent: rgba(0, 0, 0, 20%);
+
+  --shadow-primary: drop-shadow(0 0 8px var(--color-primary));
+  --shadow-red: drop-shadow(0 0 8px var(--color-red));
+  --shadow-black: drop-shadow(0 0 8px var(--color-black));
+  --shadow-text: 2px 2px var(--color-white);
+
+  --font: 1rem;
+  --font-l: 1.5rem;
+  --font-xl: 2.5rem;
 }
 
 * {
   font-family: font, sans-serif;
-  font-size: 1rem;
+  font-size: var(--font);
   line-height: 1.5;
   box-sizing: border-box;
 }

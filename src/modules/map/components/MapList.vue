@@ -45,12 +45,12 @@ import { MAP_URL, MAP_LIST } from '@/map/constants';
   width: 80%;
   height: auto;
   animation: rotate 2s infinite;
-  filter: drop-shadow(0px 0px 8px var(--color-black));
+  filter: var(--shadow-black);
 }
 
 .title {
   font-weight: 700;
-  text-shadow: 2px 2px var(--color-white);
+  text-shadow: var(--shadow-text);
 }
 
 @keyframes rotate {

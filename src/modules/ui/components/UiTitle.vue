@@ -6,12 +6,12 @@
 
 <style module>
 .title {
-  font-size: 2.5rem;
+  font-size: var(--font-xl);
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
   color: var(--color-black);
-  text-shadow: 4px 4px var(--color-white);
+  text-shadow: var(--shadow-text);
   margin-top: 56px;
   margin-bottom: 16px;
 }

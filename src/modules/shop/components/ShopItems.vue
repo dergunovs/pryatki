@@ -46,12 +46,12 @@ import { PLAYER_ITEMS } from '@/player/constants';
 }
 
 .current {
-  filter: drop-shadow(2px 2px 4px var(--color-black));
+  filter: var(--shadow-black);
 }
 
 .title {
   font-weight: 700;
-  text-shadow: 2px 2px var(--color-white);
+  text-shadow: var(--shadow-text);
   color: var(--color-black);
   opacity: 0.4;
 }

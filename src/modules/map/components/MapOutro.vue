@@ -41,6 +41,6 @@ const message = computed(() => (props.isPlayerWon ? 'Вы выйграли!' : '
 
 .message {
   text-align: center;
-  font-size: 1.75rem;
+  font-size: var(--font-l);
 }
 </style>

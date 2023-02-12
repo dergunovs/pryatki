@@ -33,6 +33,6 @@ import UiTitle from '@/ui/components/UiTitle.vue';
 .subTitle {
   text-align: center;
   font-weight: 700;
-  text-shadow: 2px 2px var(--color-white);
+  text-shadow: var(--shadow-text);
 }
 </style>

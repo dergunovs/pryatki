@@ -45,7 +45,7 @@ function exit() {
   position: absolute;
   width: 36px;
   height: 36px;
-  font-size: 1.5rem;
+  font-size: var(--font-l);
   top: 12px;
   right: 16px;
   background: var(--color-black-transparent);

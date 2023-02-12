@@ -30,7 +30,7 @@ const position = computed(() => (props.isRelativePosition ? 'relative' : 'absolu
 <style module>
 .player {
   position: v-bind(position);
-  z-index: 1;
+  z-index: 2;
   transition: all 300ms;
 }
 
@@ -42,11 +42,12 @@ const position = computed(() => (props.isRelativePosition ? 'relative' : 'absolu
 }
 
 .found {
-  filter: brightness(0.2) drop-shadow(0 0 8px var(--color-red));
+  filter: brightness(0.2) var(--shadow-red);
 }
 
 .hidden {
   top: 0;
+  z-index: 1;
 }
 
 .hidden .body {

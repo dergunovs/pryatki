@@ -68,11 +68,11 @@ const emit = defineEmits(['choise']);
 
 .itemChoosen {
   position: relative;
-  filter: drop-shadow(0 0 8px var(--color-primary));
+  filter: var(--shadow-primary);
   z-index: 2;
 }
 
 .found {
-  filter: brightness(0.2) drop-shadow(0 0 8px var(--color-red));
+  filter: brightness(0.2) var(--shadow-red);
 }
 </style>

@@ -24,7 +24,7 @@ const props = withDefaults(
   border-radius: 32px;
   text-align: center;
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: var(--font-l);
   font-weight: 700;
 }
 </style>
