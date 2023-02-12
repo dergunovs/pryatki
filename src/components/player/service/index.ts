@@ -1,6 +1,7 @@
 import { ref } from 'vue';
 
 export const currentMap = ref(0);
+export const currentImage = ref(0);
 export const coins = ref(0);
 
 export function checkLS() {

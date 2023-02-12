@@ -4,7 +4,7 @@
 
     <template v-if="props.isPlayerWon">
       <UiButton @click="emit('nextMap')" label="Дальше" />
-      <ThePlayer isPlayerWon />
+      <ThePlayer isRelativePosition />
     </template>
 
     <template v-else>

@@ -7,23 +7,24 @@
       props.isFound && $style.found,
     ]"
   >
-    <img :src="imageBody" :class="$style.body" alt="player" width="904" height="1413" />
+    <img :src="PLAYER_IMAGES[currentImage].image" :class="$style.body" alt="player" width="904" height="1413" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import imageBody from '@/components/player/images/body.png';
+import { currentImage } from '@/components/player/service';
+import { PLAYER_IMAGES } from '@/components/player/constants';
 
 const props = defineProps<{
   isHidden?: boolean;
   isSearch?: boolean;
   isFound?: boolean;
-  isPlayerWon?: boolean;
+  isRelativePosition?: boolean;
 }>();
 
-const position = computed(() => (props.isPlayerWon ? 'relative' : 'absolute'));
+const position = computed(() => (props.isRelativePosition ? 'relative' : 'absolute'));
 </script>
 
 <style module>

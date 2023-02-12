@@ -29,7 +29,6 @@ import MapOutro from '@/components/map/MapOutro.vue';
 
 import { useMap } from '@/components/map/composables/useMap';
 import { setCurrentMap, addCoins, currentMap } from '@/components/player/service';
-import { IMap } from '@/components/map/interface';
 import { MAP_LIST, MAP_URL } from '@/components/map/constants';
 import { CREDITS_URL } from '@/components/credits/constants';
 
@@ -40,8 +39,7 @@ const router = useRouter();
 
 const isPlayerWonMap = ref(false);
 
-const map = computed(() => MAP_LIST.find((map: IMap) => map.id === Number(route.params.id)));
-const mapId = computed(() => map.value?.id as number);
+const map = computed(() => MAP_LIST[Number(route.params.id)]);
 
 const { isIntro, isCount, isSearch, isDecision, isOutro, foundItems } = useMap(map);
 
@@ -58,12 +56,13 @@ function setPlayerState(state: boolean) {
   if (isPlayerWonMap.value) {
     addCoins(map.value?.coins as number);
 
-    if (mapId.value === currentMap.value && mapId.value !== MAP_LIST.length - 1) setCurrentMap(mapId.value + 1);
+    if (map.value.id === currentMap.value && map.value.id !== Object.keys(MAP_LIST).length - 1)
+      setCurrentMap(map.value.id + 1);
   }
 }
 
 function handleNextPage() {
-  const nextPage = mapId.value < MAP_LIST.length - 1 ? `${MAP_URL}/${mapId.value + 1}` : CREDITS_URL;
+  const nextPage = map.value.id < Object.keys(MAP_LIST).length - 1 ? `${MAP_URL}/${map.value.id + 1}` : CREDITS_URL;
 
   router.push(nextPage);
 }

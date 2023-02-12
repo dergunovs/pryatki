@@ -6,4 +6,8 @@ import { regular } from '@/components/map/data/regular';
 
 export const MAP_URL = '/maps';
 
-export const MAP_LIST: IMap[] = [horror, amusement, regular];
+export const MAP_LIST: { [key: number]: IMap } = {
+  0: horror,
+  1: amusement,
+  2: regular,
+};
