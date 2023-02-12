@@ -11,11 +11,11 @@ import item5 from './item5.png';
 import item6 from './item6.png';
 
 export const horror: IMap = {
-  id: 0,
+  id: 2,
   title: 'Хоррор',
   icon,
   background,
   items: [item1, item2, item3, item4, item5, item6],
-  itemsToFind: 1,
-  coins: 250,
+  itemsToFind: 2,
+  coins: 300,
 };

@@ -10,12 +10,12 @@ import item4 from './item4.png';
 import item5 from './item5.png';
 import item6 from './item6.png';
 
-export const regular: IMap = {
-  id: 2,
-  title: 'Обычная',
+export const training: IMap = {
+  id: 0,
+  title: 'Тренировка',
   icon,
   background,
   items: [item1, item2, item3, item4, item5, item6],
-  itemsToFind: 2,
-  coins: 300,
+  itemsToFind: 1,
+  coins: 250,
 };
