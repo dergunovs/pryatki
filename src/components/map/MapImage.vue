@@ -1,10 +1,10 @@
 <template>
   <div :class="$style.container">
-    <img :src="props.background" :class="$style.background" alt="Фон карты" />
+    <img :src="props.map.background" :class="$style.background" alt="Фон карты" />
 
     <MapItems
       v-if="props.isCount || props.isSearch || props.isDecision"
-      :items="props.items"
+      :items="props.map.items"
       :choosenItem="choosenItem"
       :foundItems="props.foundItems"
       :isSearch="props.isSearch"
@@ -25,13 +25,13 @@ import { ref, watch } from 'vue';
 
 import MapItems from '@/components/map/MapItems.vue';
 import MapSearch from '@/components/map/MapSearch.vue';
-
 import ThePlayer from '@/components/player/ThePlayer.vue';
 import TheDasha from '@/components/dasha/TheDasha.vue';
 
+import { IMap } from '@/components/map/interface';
+
 const props = defineProps<{
-  background: string;
-  items: string[];
+  map: IMap;
   foundItems: number[];
   isCount: boolean;
   isSearch: boolean;
@@ -56,7 +56,7 @@ watch(
 watch(
   () => props.foundItems,
   () => {
-    if (props.foundItems && choosenItem.value !== undefined) {
+    if (props.foundItems.length === props.map.itemsToFind && choosenItem.value !== undefined) {
       const isPlayerWon = !props.foundItems.includes(choosenItem.value);
       emit('decision', isPlayerWon);
     }

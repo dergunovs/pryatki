@@ -1,13 +1,12 @@
 <template>
-  <div v-if="map" :class="map">
+  <div v-if="map">
     <MapIntro v-if="isIntro" :title="map.title" />
 
     <MapCounter v-if="isCount" />
 
     <MapImage
       v-if="!isIntro"
-      :background="map.background"
-      :items="map.items"
+      :map="map"
       :foundItems="foundItems"
       :isCount="isCount"
       :isSearch="isSearch"
@@ -29,7 +28,7 @@ import MapImage from '@/components/map/MapImage.vue';
 import MapOutro from '@/components/map/MapOutro.vue';
 
 import { useMap } from '@/components/map/composables/useMap';
-import { setCurrentMap, addCoins } from '@/components/player/service';
+import { setCurrentMap, addCoins, currentMap } from '@/components/player/service';
 import { IMap } from '@/components/map/interface';
 import { MAP_LIST, MAP_URL } from '@/components/map/constants';
 import { CREDITS_URL } from '@/components/credits/constants';
@@ -42,6 +41,7 @@ const router = useRouter();
 const isPlayerWonMap = ref(false);
 
 const map = computed(() => MAP_LIST.find((map: IMap) => map.id === Number(route.params.id)));
+const mapId = computed(() => map.value?.id as number);
 
 const { isIntro, isCount, isSearch, isDecision, isOutro, foundItems } = useMap(map);
 
@@ -57,20 +57,14 @@ function setPlayerState(state: boolean) {
 
   if (isPlayerWonMap.value) {
     addCoins(map.value?.coins as number);
-    setCurrentMap((map.value?.id as number) + 1);
+
+    if (mapId.value === currentMap.value && mapId.value !== MAP_LIST.length - 1) setCurrentMap(mapId.value + 1);
   }
 }
 
 function handleNextPage() {
-  const currentMapId = map.value?.id as number;
-  const nextPage = currentMapId < MAP_LIST.length - 1 ? `${MAP_URL}/${currentMapId + 1}` : CREDITS_URL;
+  const nextPage = mapId.value < MAP_LIST.length - 1 ? `${MAP_URL}/${mapId.value + 1}` : CREDITS_URL;
 
   router.push(nextPage);
 }
 </script>
-
-<style module>
-.map {
-  position: relative;
-}
-</style>
