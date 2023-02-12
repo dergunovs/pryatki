@@ -5,6 +5,6 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   server: { port: 3000 },
   build: { target: 'esnext' },
-  resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+  resolve: { alias: { '@': path.resolve(__dirname, './src/modules') } },
   plugins: [vue()],
 });

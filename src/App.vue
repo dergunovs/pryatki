@@ -7,9 +7,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-import LayoutBase from '@/components/layout/LayoutBase.vue';
+import LayoutBase from '@/layout/components/LayoutBase.vue';
 
-import { initLS } from '@/components/player/service';
+import { initLS } from '@/player/service';
 
 const isLoaded = ref(false);
 const key = ref(0);
