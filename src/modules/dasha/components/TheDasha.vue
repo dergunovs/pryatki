@@ -1,13 +1,11 @@
 <template>
   <div :class="[$style.dasha, props.isSearch && $style.search]">
-    <img :src="imageBody" :class="$style.body" alt="Body" width="904" height="1413" />
-    <img :src="imageAxe" :class="$style.axe" alt="Axe" width="398" height="424" />
+    <img :src="ImageBody" :class="$style.body" alt="Dasha" width="600" height="1200" />
   </div>
 </template>
 
 <script setup lang="ts">
-import imageBody from '@/dasha/images/body.png';
-import imageAxe from '@/dasha/images/axe.png';
+import ImageBody from '@/dasha/images/body.png';
 
 const props = defineProps<{ isSearch?: boolean }>();
 </script>
@@ -15,35 +13,21 @@ const props = defineProps<{ isSearch?: boolean }>();
 <style module>
 .dasha {
   position: relative;
-  max-width: 80%;
   z-index: 3;
+  max-width: 50%;
 }
 
 .body {
-  max-width: 80%;
+  width: 100%;
   height: auto;
-  animation: rotate 1s infinite;
-}
-
-.axe {
-  position: absolute;
-  width: 128px;
-  height: auto;
-  right: -24px;
-  top: 26%;
   animation: rotate 1s infinite;
 }
 
 .search {
   position: absolute;
-  width: 128px;
-  height: 160px;
+  width: 100px;
+  height: 200px;
   animation: walk 3s;
-}
-
-.search .axe {
-  width: 64px;
-  top: 20%;
 }
 
 @keyframes rotate {
@@ -62,10 +46,10 @@ const props = defineProps<{ isSearch?: boolean }>();
 
 @keyframes walk {
   from {
-    top: -140px;
+    top: -200px;
   }
   to {
-    top: calc(50% - 80px);
+    top: calc(50% - 100px);
   }
 }
 </style>
