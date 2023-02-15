@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.menu">
-    <UiButton tag="RouterLink" :label="link.title" v-for="link in MENU_LINKS" :key="link.title" :to="link.url" />
+    <UiButton :label="link.title" v-for="link in MENU_LINKS" :key="link.title" @click="$router.push(link.url)" />
   </div>
 </template>
 
 <script setup lang="ts">
-import UiButton from '@/ui/components/UiButton.vue';
+import { UiButton } from '@/ui';
 
 import { MENU_LINKS } from '@/main/constants';
 </script>

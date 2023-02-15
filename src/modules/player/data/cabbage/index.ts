@@ -2,9 +2,9 @@ import { IPlayerItem } from '@/player/interface';
 
 import image from './image.png';
 
-export const fake3: IPlayerItem = {
-  id: 3,
+export const cabbage: IPlayerItem = {
+  id: 2,
   image,
-  title: 'Фейк 3',
-  price: 3000,
+  title: 'Капуста',
+  price: 1000,
 };

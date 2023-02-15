@@ -15,7 +15,8 @@
 <script setup lang="ts">
 import ThePlayer from '@/player/components/ThePlayer.vue';
 import ShopItems from '@/shop/components/ShopItems.vue';
-import UiTitle from '@/ui/components/UiTitle.vue';
+
+import { UiTitle } from '@/ui';
 </script>
 
 <style module>

@@ -1,19 +1,11 @@
 <template>
-  <component :is="props.tag" :class="$style.button">
+  <button :class="$style.button" type="button">
     {{ props.label }}
-  </component>
+  </button>
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    tag?: 'button' | 'RouterLink';
-    label: string;
-  }>(),
-  {
-    tag: 'button',
-  }
-);
+const props = defineProps<{ label: string }>();
 </script>
 
 <style module>
@@ -26,5 +18,6 @@ const props = withDefaults(
   text-decoration: none;
   font-size: var(--font-l);
   font-weight: 700;
+  background: none;
 }
 </style>

@@ -19,7 +19,8 @@ import { computed } from 'vue';
 
 import ThePlayer from '@/player/components/ThePlayer.vue';
 import TheDasha from '@/dasha/components/TheDasha.vue';
-import UiButton from '@/ui/components/UiButton.vue';
+
+import { UiButton } from '@/ui';
 
 const props = defineProps<{ isPlayerWon: boolean }>();
 const emit = defineEmits(['nextMap', 'restart']);

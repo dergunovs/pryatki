@@ -8,5 +8,6 @@
 
 <script setup lang="ts">
 import MapList from '@/map/components/MapList.vue';
-import UiTitle from '@/ui/components/UiTitle.vue';
+
+import { UiTitle } from '@/ui';
 </script>

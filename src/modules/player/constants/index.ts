@@ -1,13 +1,13 @@
 import { IPlayerItem } from '@/player/interface';
 
 import { base } from '@/player/data/base';
-import { fake1 } from '@/player/data/fake1';
-import { fake2 } from '@/player/data/fake2';
-import { fake3 } from '@/player/data/fake3';
+import { girl } from '@/player/data/girl';
+import { cabbage } from '@/player/data/cabbage';
+import { ninja } from '@/player/data/ninja';
 
 export const PLAYER_ITEMS: { [key: number]: IPlayerItem } = {
   0: base,
-  1: fake1,
-  2: fake2,
-  3: fake3,
+  1: girl,
+  2: cabbage,
+  3: ninja,
 };

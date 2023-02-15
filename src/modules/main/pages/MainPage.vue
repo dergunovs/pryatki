@@ -9,7 +9,8 @@
 <script setup lang="ts">
 import MainMenu from '@/main/components/MainMenu.vue';
 import TheDasha from '@/dasha/components/TheDasha.vue';
-import UiTitle from '@/ui/components/UiTitle.vue';
+
+import { UiTitle } from '@/ui';
 </script>
 
 <style module>
