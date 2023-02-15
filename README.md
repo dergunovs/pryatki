@@ -21,3 +21,7 @@
 Запуск Android Studio с открытым проектом: `npx cap open android`
 
 Игнорируем рекомендации Android Studio. Добавляем виртуальное устройство, например Google Pixel 4, нажимаем Play.
+
+**Генерация иконок**
+
+`npx capacitor-assets generate --android --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111'`
