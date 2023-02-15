@@ -7,9 +7,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import backgroundImage from '@/layout/images/background.jpg';
+import ImageBackground from '@/layout/images/background.jpg';
 
-const background = ref(`url(${backgroundImage})`);
+const background = ref(`url(${ImageBackground})`);
 </script>
 
 <style module>

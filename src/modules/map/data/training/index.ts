@@ -1,8 +1,6 @@
 import { IMap } from '@/map/interface';
 
 import icon from './icon.png';
-import background from './background.jpg';
-
 import item1 from './item1.png';
 import item2 from './item2.png';
 import item3 from './item3.png';
@@ -14,7 +12,6 @@ export const training: IMap = {
   id: 0,
   title: 'Тренировка',
   icon,
-  background,
   items: [item1, item2, item3, item4, item5, item6],
   itemsToFind: 1,
   coins: 250,

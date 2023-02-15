@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <img :src="props.map.background" :class="$style.background" alt="Фон карты" />
+    <img :src="ImageBackground" :class="$style.background" alt="Фон карты" />
 
     <MapItems
       v-if="props.isCount || props.isSearch || props.isDecision"
@@ -27,6 +27,8 @@ import MapItems from '@/map/components/MapItems.vue';
 import MapSearch from '@/map/components/MapSearch.vue';
 import ThePlayer from '@/player/components/ThePlayer.vue';
 import TheDasha from '@/dasha/components/TheDasha.vue';
+
+import ImageBackground from '@/map/images/background.jpg';
 
 import { IMap } from '@/map/interface';
 

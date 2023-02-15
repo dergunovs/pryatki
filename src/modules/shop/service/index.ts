@@ -11,5 +11,12 @@ export function buyItem(id: number) {
     addItem(item.id);
   }
 
+  setItem(item.id);
+}
+
+export function setItem(id: number) {
+  const item = PLAYER_ITEMS[id];
+  const isPlayerHasItem = items.value.includes(id);
+
   if (isPlayerHasItem) setCurrentItem(item.id);
 }
