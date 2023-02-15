@@ -1,11 +1,11 @@
 <template>
   <div :class="[$style.dasha, props.isSearch && $style.search]">
-    <img :src="ImageBody" :class="$style.body" alt="Dasha" width="600" height="1200" />
+    <img :src="ImageDasha" :class="$style.body" alt="Dasha" width="600" height="1200" />
   </div>
 </template>
 
 <script setup lang="ts">
-import ImageBody from '@/dasha/images/body.png';
+import ImageDasha from '@/dasha/images/image.png';
 
 const props = defineProps<{ isSearch?: boolean }>();
 </script>

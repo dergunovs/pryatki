@@ -30,11 +30,11 @@ import { PLAYER_ITEMS } from '@/player/constants';
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 12px;
+  gap: 10px;
 }
 
 .item {
-  width: calc(50% - 40px);
+  width: calc(50% - 60px);
   display: flex;
   flex-direction: column;
   align-items: center;

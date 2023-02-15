@@ -7,7 +7,7 @@
       props.isFound && $style.found,
     ]"
   >
-    <img :src="PLAYER_ITEMS[currentItem].image" :class="$style.body" alt="player" width="904" height="1413" />
+    <img :src="PLAYER_ITEMS[currentItem].image" :class="$style.body" alt="player" width="900" height="1200" />
   </div>
 </template>
 
@@ -35,7 +35,7 @@ const position = computed(() => (props.isRelativePosition ? 'relative' : 'absolu
 }
 
 .body {
-  width: 192px;
+  width: 160px;
   height: auto;
   transition: all 300ms;
   animation: rotate 1s infinite;
