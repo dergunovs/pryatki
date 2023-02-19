@@ -1,7 +1,9 @@
 <template>
   <div :class="$style.layout">
-    <HeaderCoins />
-    <HeaderExit />
+    <header :class="$style.header">
+      <HeaderCoins />
+      <HeaderExit />
+    </header>
 
     <component :is="background" :class="$style.background">
       <slot></slot>
@@ -29,6 +31,16 @@ const background = computed(() => (route.path === MAIN_URL ? BackgroundAnimated 
 .layout {
   position: relative;
   overflow: hidden;
+}
+
+.header {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 12px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
 }
 
 .background {

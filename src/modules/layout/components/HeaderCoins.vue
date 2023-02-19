@@ -12,10 +12,7 @@ import { coins } from '@/player/service';
 
 <style module>
 .coins {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  z-index: 3;
+  display: flex;
   background-color: var(--color-white-transparent);
   padding: 4px 12px;
   border-radius: 16px;

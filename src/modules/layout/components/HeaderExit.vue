@@ -42,16 +42,12 @@ function exit() {
 .exit {
   display: flex;
   justify-content: center;
-  position: absolute;
   width: 36px;
   height: 36px;
   font-size: var(--font-l);
-  top: 12px;
-  right: 16px;
   background: var(--color-black-transparent);
   color: var(--color-white);
   border: none;
   border-radius: 50%;
-  z-index: 3;
 }
 </style>

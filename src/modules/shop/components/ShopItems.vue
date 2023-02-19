@@ -54,6 +54,7 @@ import { PLAYER_ITEMS } from '@/player/constants';
   text-shadow: var(--shadow-text);
   color: var(--color-black);
   opacity: 0.4;
+  line-height: 1.2;
 }
 
 .bought {
