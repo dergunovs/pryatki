@@ -1,13 +1,12 @@
 <template>
   <div>
     <UiTitle>Карты</UiTitle>
-
-    <MapList />
+    <MapLinks />
   </div>
 </template>
 
 <script setup lang="ts">
-import MapList from '@/map/components/MapList.vue';
+import MapLinks from '@/map/components/MapLinks.vue';
 
 import { UiTitle } from '@/ui';
 </script>

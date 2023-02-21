@@ -1,29 +1,19 @@
 <template>
-  <div :class="$style.maps">
-    <RouterLink
-      :to="`${MAP_URL}/${map.id}`"
-      v-for="map in MAP_LIST"
-      :key="map.id"
-      :class="[$style.map, currentMap < map.id && $style.disabled]"
-    >
-      <img :src="map.icon" :class="$style.icon" width="512" height="512" :alt="map.title" />
-      <div :class="$style.title">{{ map.title }}</div>
-    </RouterLink>
-  </div>
+  <RouterLink :to="`${MAP_URL}/${props.map.id}`" :class="[$style.map, currentMap < props.map.id && $style.disabled]">
+    <img :src="props.map.icon" :class="$style.icon" width="512" height="512" :alt="props.map.title" />
+    <div :class="$style.title">{{ props.map.title }}</div>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
 import { currentMap } from '@/player/service';
-import { MAP_URL, MAP_LIST } from '@/map/constants';
+import { MAP_URL } from '@/map/constants';
+import { IMap } from '@/map/interface';
+
+const props = defineProps<{ map: IMap }>();
 </script>
 
 <style module>
-.maps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-}
-
 .map {
   display: flex;
   flex-direction: column;

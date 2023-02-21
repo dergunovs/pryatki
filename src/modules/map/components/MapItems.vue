@@ -1,34 +1,21 @@
 <template>
   <div :class="$style.items">
-    <button
-      @click="emit('choise', i)"
-      v-for="(item, i) in props.items"
-      :key="`item${i}`"
+    <MapItem
+      v-for="(item, index) in props.items"
+      :key="`item${index}`"
+      :item="item"
+      :index="index"
+      :choosenItem="props.choosenItem"
+      :foundItems="props.foundItems"
+      :isSearch="props.isSearch"
       :disabled="props.isSearch || props.isDecision"
-      :class="$style.item"
-    >
-      <img
-        :src="item"
-        :class="[
-          $style.itemImage,
-          i === props.choosenItem && $style.itemChoosen,
-          props.foundItems.includes(i) && $style.found,
-        ]"
-        alt="Место"
-      />
-
-      <ThePlayer
-        v-if="i === props.choosenItem"
-        isHidden
-        :isSearch="props.isSearch"
-        :isFound="props.foundItems.includes(i)"
-      />
-    </button>
+      @choise="handleChoise"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import ThePlayer from '@/player/components/ThePlayer.vue';
+import MapItem from '@/map/components/MapItem.vue';
 
 const props = defineProps<{
   items: string[];
@@ -39,6 +26,10 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits(['choise']);
+
+function handleChoise(index: number) {
+  emit('choise', index);
+}
 </script>
 
 <style module>
@@ -50,40 +41,5 @@ const emit = defineEmits(['choise']);
   justify-content: space-between;
   width: 100%;
   height: 100%;
-}
-
-.item {
-  position: relative;
-  max-width: 50%;
-  background: none;
-  border: 0;
-  z-index: 2;
-}
-
-.itemImage {
-  display: flex;
-  width: 100%;
-  height: auto;
-}
-
-.itemChoosen {
-  position: relative;
-  filter: var(--shadow-primary);
-  z-index: 2;
-}
-
-.found {
-  filter: brightness(0.2) var(--shadow-red);
-}
-
-@media (min-width: 480px) {
-  .item {
-    display: flex;
-    justify-content: center;
-  }
-
-  .itemImage {
-    width: 60%;
-  }
 }
 </style>

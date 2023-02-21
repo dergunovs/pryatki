@@ -1,9 +1,6 @@
 <template>
   <div :class="$style.layout">
-    <header :class="$style.header">
-      <HeaderCoins />
-      <HeaderExit />
-    </header>
+    <HeaderBlock />
 
     <component :is="background" :class="$style.background">
       <slot></slot>
@@ -15,8 +12,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-import HeaderCoins from '@/layout/components/HeaderCoins.vue';
-import HeaderExit from '@/layout/components/HeaderExit.vue';
+import HeaderBlock from '@/layout/components/HeaderBlock.vue';
 import BackgroundAnimated from '@/layout/components/BackgroundAnimated.vue';
 import BackgroundBase from '@/layout/components/BackgroundBase.vue';
 
@@ -31,16 +27,6 @@ const background = computed(() => (route.path === MAIN_URL ? BackgroundAnimated 
 .layout {
   position: relative;
   overflow: hidden;
-}
-
-.header {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  top: 12px;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
 }
 
 .background {
