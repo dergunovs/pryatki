@@ -2,6 +2,7 @@ import { ref } from 'vue';
 
 export const currentMap = ref(0);
 export const coins = ref(0);
+export const coinsDifference = ref('');
 export const currentItem = ref(0);
 export const items = ref<number[]>([0]);
 
@@ -31,11 +32,21 @@ export function setCoins(coinsToSet: number) {
 }
 
 export function addCoins(coinsToAdd: number) {
+  coinsDifference.value = `+${coinsToAdd}`;
+  setTimeout(() => {
+    coinsDifference.value = '';
+  }, 3000);
+
   coins.value += coinsToAdd;
   localStorage.setItem('pryatki_coins', coins.value.toString());
 }
 
 export function removeCoins(coinsToRemove: number) {
+  coinsDifference.value = `-${coinsToRemove}`;
+  setTimeout(() => {
+    coinsDifference.value = '';
+  }, 3000);
+
   coins.value -= coinsToRemove;
   localStorage.setItem('pryatki_coins', coins.value.toString());
 }

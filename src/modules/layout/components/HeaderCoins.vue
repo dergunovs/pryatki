@@ -1,16 +1,26 @@
 <template>
-  <div :class="$style.coins">
-    <TheCoins :coins="coins" />
+  <div :class="$style.container">
+    <div :class="$style.coins">
+      <TheCoins :coins="coins" />
+    </div>
+
+    <div v-show="coinsDifference">{{ coinsDifference }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import TheCoins from '@/player/components/TheCoins.vue';
 
-import { coins } from '@/player/service';
+import { coins, coinsDifference } from '@/player/service';
 </script>
 
 <style module>
+.container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .coins {
   display: flex;
   background-color: var(--color-white-transparent);
