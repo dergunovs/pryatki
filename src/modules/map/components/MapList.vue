@@ -64,4 +64,10 @@ import { MAP_URL, MAP_LIST } from '@/map/constants';
     transform: rotate(-2deg);
   }
 }
+
+@media (min-width: 480px) {
+  .map {
+    width: calc(33.33% - 24px);
+  }
+}
 </style>

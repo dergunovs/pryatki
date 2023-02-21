@@ -27,21 +27,21 @@ import { PLAYER_ITEMS } from '@/player/constants';
 
 <style module>
 .items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-around;
-  gap: 10px;
+  gap: 12px;
 }
 
 .item {
-  width: calc(50% - 60px);
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
 .image {
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
@@ -60,5 +60,11 @@ import { PLAYER_ITEMS } from '@/player/constants';
 .bought {
   color: var(--color-primary);
   opacity: 1;
+}
+
+@media (min-width: 480px) {
+  .items {
+    gap: 32px;
+  }
 }
 </style>

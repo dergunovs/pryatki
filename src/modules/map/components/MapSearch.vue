@@ -59,31 +59,39 @@ setTimeout(() => {
 
 @keyframes search {
   from {
-    transform: translate(-50%, -150%);
+    transform: translate(-60%, -160%);
   }
   25% {
-    transform: translate(50%, -150%);
+    transform: translate(60%, -160%);
   }
   50% {
-    transform: translate(50%, 150%);
+    transform: translate(60%, 160%);
   }
   75% {
-    transform: translate(-50%, 150%);
+    transform: translate(-60%, 160%);
   }
   to {
-    transform: translate(-50%, -150%);
+    transform: translate(-60%, -160%);
   }
 }
 
 @keyframes magnify {
   from {
-    transform: translate(-50%, -150%);
+    transform: translate(-60%, -160%);
   }
   50% {
     transform: translate(0, 0);
   }
   to {
     transform: scale(6);
+  }
+}
+
+@media (min-width: 480px) {
+  .flashlight {
+    width: 30vw;
+    height: 30vw;
+    border: 16px solid var(--color-black-transparent);
   }
 }
 </style>

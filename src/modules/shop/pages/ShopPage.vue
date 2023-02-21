@@ -23,6 +23,7 @@ import { UiTitle } from '@/ui';
 .shop {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .player {

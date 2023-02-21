@@ -75,4 +75,15 @@ const emit = defineEmits(['choise']);
 .found {
   filter: brightness(0.2) var(--shadow-red);
 }
+
+@media (min-width: 480px) {
+  .item {
+    display: flex;
+    justify-content: center;
+  }
+
+  .itemImage {
+    width: 60%;
+  }
+}
 </style>

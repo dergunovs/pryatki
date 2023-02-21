@@ -77,4 +77,14 @@ const position = computed(() => (props.isRelativePosition ? 'relative' : 'absolu
     transform: rotate(0deg);
   }
 }
+
+@media (min-width: 480px) {
+  .body {
+    width: 240px;
+  }
+
+  .hidden {
+    left: 30%;
+  }
+}
 </style>

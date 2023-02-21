@@ -52,4 +52,24 @@ const props = defineProps<{ isSearch?: boolean }>();
     top: calc(50% - 100px);
   }
 }
+
+@media (min-width: 480px) {
+  .body {
+    max-height: 800px;
+  }
+
+  .search {
+    width: 200px;
+    height: 400px;
+  }
+
+  @keyframes walk {
+    from {
+      top: -400px;
+    }
+    to {
+      top: calc(50% - 200px);
+    }
+  }
+}
 </style>
