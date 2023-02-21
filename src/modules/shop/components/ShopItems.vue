@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.items">
-    <ShopItem v-for="item in PLAYER_ITEMS" :key="item.id" :item="item" :class="$style.item" />
+    <ShopItem v-for="item in PLAYER_ITEMS" :key="item.id" :item="item" />
   </div>
 </template>
 
