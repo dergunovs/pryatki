@@ -21,7 +21,7 @@ import { MAP_URL, MAP_LIST } from '@/map/constants';
 .maps {
   display: flex;
   flex-wrap: wrap;
-  gap: 48px 32px;
+  gap: 32px;
 }
 
 .map {

@@ -20,6 +20,7 @@ const props = defineProps<{ isSearch?: boolean }>();
 .body {
   width: 100%;
   height: auto;
+  max-height: 40vh;
   animation: rotate 1s infinite;
 }
 
@@ -54,10 +55,6 @@ const props = defineProps<{ isSearch?: boolean }>();
 }
 
 @media (min-width: 480px) {
-  .body {
-    max-height: 800px;
-  }
-
   .search {
     width: 200px;
     height: 400px;
